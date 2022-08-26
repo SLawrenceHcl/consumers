@@ -11,11 +11,17 @@ public class consumersConfig {
 
     @Bean
     public Consumer<String> consumer1(){
-        return String -> String.toUpperCase(Locale.ROOT);
+        return String ->{
+            System.out.println("consumer1: " + String);
+        };
     }
 
-    @Bean
-    public Consumer<String> consumer2(){
-        return String -> String.toLowerCase(Locale.ROOT);
-    }
+//    @Bean
+//    public Consumer<String> consumer2(){
+//        return String -> {
+//            System.out.println("consumer2: " + String);
+//        };
+////        return text -> System.out.println(text);
+//
+//    }
 }

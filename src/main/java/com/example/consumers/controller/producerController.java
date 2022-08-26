@@ -4,21 +4,21 @@ package com.example.consumers.controller;
 import com.example.consumers.service.producerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.function.StreamBridge;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.websocket.server.PathParam;
 
 @RestController
 public class producerController {
-//    @Autowired
-//    producerService producerService;
+    @Autowired
+    producerService producerService;
     @Autowired
     StreamBridge streamBridge;
 
-    @PostMapping("/producer")
-    public String producer(@RequestBody String text){
-        streamBridge.send("producer-in", text);
-        //producerService.send(text);
+    @PostMapping("/producer/{text}")
+    public String producer(@PathVariable String text){
+
+        producerService.send(text);
         return text;
     }
 

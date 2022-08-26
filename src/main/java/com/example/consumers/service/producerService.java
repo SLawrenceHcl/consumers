@@ -11,6 +11,9 @@ public class producerService {
     StreamBridge streamBridge;
 
     public void send(String text){
-        streamBridge.send("producer-in-0", text);
+
+        streamBridge.send("producer-in", text);
+//        text+="newbie";
+//        streamBridge.send("producer-in-1", text);
     }
 }

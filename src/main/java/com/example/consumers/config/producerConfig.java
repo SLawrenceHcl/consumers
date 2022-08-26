@@ -9,6 +9,9 @@ import java.util.function.Function;
 public class producerConfig {
     @Bean
     public Function<String, String> producer(){
-        return text -> text;
+        return text ->{
+            System.out.println("Producer received " + text);
+            return text;
+        };
     }
 }
